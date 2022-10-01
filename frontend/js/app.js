@@ -71,6 +71,8 @@ const updateConnectStatus = async () => {
     notConnected.classList.add('hidden');
     // SHOW SPINNER
     spinner.classList.remove('hidden');
+    console.log('ABI,', abi)
+    console.log('Contract,', contractAddress)
     window.contract = new web3.eth.Contract(abi, contractAddress);
     loadInfo();
   } else {
@@ -93,6 +95,8 @@ const updateConnectStatus = async () => {
           onboardButton.disabled = true;
           window.address = accts[0];
           accounts = accts;
+          console.log('ABI,', abi)
+          console.log('Contract,', contractAddress)
           window.contract = new web3.eth.Contract(abi, contractAddress);
           loadInfo();
         });
@@ -155,7 +159,7 @@ async function checkChain() {
 }
 
 async function loadInfo() {
-  console.log('before await')
+  console.log('beforeq await')
   window.info = await window.contract.methods.getInfo().call();
   console.log('after await')
   const publicMintActive = await contract.methods.mintingActive().call();
