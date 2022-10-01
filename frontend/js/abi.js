@@ -1,1 +1,1 @@
-const abi = []
+const abi = ['ABC']
